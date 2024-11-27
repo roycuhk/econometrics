@@ -29,18 +29,18 @@ tab govdummy,gen(_Igovdum)
 tab year,gen(_Iyear)
 tab ind2,gen(_Iind2) 
 dprobit fdece  lndis lnasset ROS   importance Dfsoe prov_gdpper   prov_SOE unemployment   _Iyear* _Igovdum* _Iind2* ,cl(govdummy) 
-outreg2 using "Table 3-Panel A", replace word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Whole Sample) addtext(gov¡¯t year & industry  dummy, YES) 
+outreg2 using "Table 3-Panel A", replace word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Whole Sample) addtext(govÂ¡Â¯t year & industry  dummy, YES) 
 dprobit fdece  lndis lnasset ROS   importance Dfsoe prov_gdpper   prov_SOE unemployment   _Iyear* _Igovdum* _Iind2* if govType==10 
-outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Central SOE) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Central SOE) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 dprobit fdece  lndis lnasset ROS   importance Dfsoe prov_gdpper   prov_SOE unemployment   _Iyear* _Igovdum* _Iind2* if govType==20,cl(govdummy) 
-outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(ProbitProvincal SOE) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(ProbitProvincal SOE) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 dprobit fdece  lndis lnasset ROS   importance Dfsoe prov_gdpper   prov_SOE unemployment   _Iyear* _Igovdum* _Iind2* if govType==40,cl(govdummy) 
-outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Municipal SOE) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I*) ctitle(Probit Municipal SOE) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 
 ****Column 5: Hazard model
 stset year,id(id) failure(fdece) origin(time soe_init_yr-1)
 stcox lndis lnasset ROS  importance Dfsoe  prov_gdpper prov_SOE unemployment  _Iyear* _Igovdum* _Iind2*,  cl(govdummy) nohr
-outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I* o.*) ctitle(Hazard model Whole Sample) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A",  word noobs noaster nocons dec(4) addstat(Pseudo R2, e(r2_p)) drop(_I* o.*) ctitle(Hazard model Whole Sample) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 
 ****Column 6-7:Multinomial Probit model
 use "dece_mlogit",clear
@@ -52,10 +52,10 @@ replace moption=1 if restru!=1&fdece==1
 replace moption=2 if restru==1&fdece!=1
 mlogit moption lndis lnasset ROS importance Dfsoe  prov_gdpper   prov_SOE unemployment  _Iyear* _Igovdum* _Iind2*  ,cl(govdummy)  
 margins, dydx(lndis lnasset ROS importance Dfsoe  prov_gdpper   prov_SOE unemployment) predict(outcome(1))  post
-outreg2 using "Table 3-Panel A", word noobs noaster nocons dec(4) drop(_I*) ctitle(Multinomial Probit Whole Sample) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A", word noobs noaster nocons dec(4) drop(_I*) ctitle(Multinomial Probit Whole Sample) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 mlogit moption lndis lnasset ROS importance Dfsoe  prov_gdpper   prov_SOE unemployment  _Iyear* _Igovdum* _Iind2*  ,cl(govdummy)  
 margins, dydx(lndis lnasset ROS importance Dfsoe  prov_gdpper   prov_SOE unemployment) predict(outcome(2))  post
-outreg2 using "Table 3-Panel A",word noobs noaster nocons dec(4) drop(_I*) ctitle(Multinomial Probit Whole Sample) addtext(gov¡¯t year & industry  dummy, YES)
+outreg2 using "Table 3-Panel A",word noobs noaster nocons dec(4) drop(_I*) ctitle(Multinomial Probit Whole Sample) addtext(govÂ¡Â¯t year & industry  dummy, YES)
 
 
 
@@ -88,7 +88,7 @@ outreg2 using "Table 3-Panel B",  word noobs noaster nocons dec(4) addstat(Pseud
 
 
 ***************************************************************************************
-*Table 4. Determinants of Decentralization ¨C Placebo Test and Third Front Construction as IV
+*Table 4. Determinants of Decentralization Â¨C Placebo Test and Third Front Construction as IV
 ***************************************************************************************
 ****Column 1: Placebo test - Whole sample
 use dece,clear
